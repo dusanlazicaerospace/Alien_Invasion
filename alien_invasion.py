@@ -15,14 +15,19 @@ class AlienInvasion:
 
     def run_game(self):
         while True: # Running the game
-            for event in pygame.event.get(): # Get events
-                if event.type == pygame.QUIT: # If we the event is quit
-                    sys.exit() #Exit the game using the sys package
-            self.screen.fill(self.settings.screen_bg_colour) #Using the numbers from settings.py for the colour  
-            self.ship.blitme()
-            pygame.display.flip() 
+            self._check_events()
+            self._update_screen()
             self.clock.tick(60) # Ajust the frame rate (60 frames per second)
 
+    def _update_screen(self):#More cleared code which helper modules with "_"
+        self.screen.fill(self.settings.screen_bg_colour) #Using the numbers from settings.py for the colour  
+        self.ship.blitme()
+        pygame.display.flip() 
+
+    def _check_events(self): #More cleared code which helper modules with "_"
+        for event in pygame.event.get(): # Get events
+            if event.type == pygame.QUIT: # If we the event is quit
+                sys.exit() #Exit the game using the sys package
 if __name__=="__main__":
     ai=AlienInvasion()
     ai.run_game()
