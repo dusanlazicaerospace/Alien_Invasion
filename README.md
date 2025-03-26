@@ -44,6 +44,7 @@ P – Pause the game ⏸️ (To be implemented)
 
 
 🚀 Future Updates
+
 A lot 
 
 
